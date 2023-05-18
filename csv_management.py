@@ -11,7 +11,7 @@ def record_attendandce(df, name):
     record_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # type: ignore
     df = pd.concat([df, pd.DataFrame({"이름": [name], "기록시간": [record_time]})], ignore_index=True)
 
-    print(f"{name}이(가) {record_time}에 출석했습니다.")
+    print(f"{name} 학생이 {record_time}에 출석했습니다.")
 
     return df
 

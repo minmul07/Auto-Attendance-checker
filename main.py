@@ -1,8 +1,13 @@
+import ui
+ui.welcomePage()
+
 import face_recognition
 import cv2
 import threading
 import numpy as np
 import pandas as pd
+# conda install -c conda-forge face_recognition opencv
+# pip install pandas
 
 import csv_management as csvm
 import face_management as fm
@@ -30,15 +35,17 @@ known_faces = fm.getFaceDataFromSubdirectory()
 # 이미지에서 얼굴 위치와 벡터 추출
 known_face_encodings = []
 known_face_names = []
+face_count = 0
 for name, face_management in known_faces.items():
+    face_count += 1
     face_encoding = face_recognition.face_encodings(face_management)[0]
     known_face_encodings.append(face_encoding)
     known_face_names.append(name)
-    print(f"{name} ready")
+    print(f"{name} 학생 얼굴 학습 완료 ({face_count}/{len(known_faces)})")
 
 # 웹캠 연결
 cap = cv2.VideoCapture(0)
-
+print("\n비디오 장치가 시작되었습니다.")
 
 while True:
     # 웹캠에서 프레임 읽기
