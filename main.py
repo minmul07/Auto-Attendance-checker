@@ -91,7 +91,8 @@ while True:
             cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
             # 인식된 얼굴 위에 이름 표시
-            cv2.putText(frame, name, (left + 6, bottom - 6), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 255), 1)
+            cv2.putText(frame, name, (left + 6, bottom - 6), 
+                        cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 255), 1)
 
             df = csvm.record_attendandce(df, name)
 
