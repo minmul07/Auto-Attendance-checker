@@ -5,6 +5,15 @@ from datetime import datetime
 # main.py에서 df 선언
 
 
+# TODO
+# dataframe에 학생의 이름, 기록시간, 기록횟수를 저장
+# 연속해서 3프레임 이상 얼굴이 인식되면 출석 기록
+
+# q 버튼을 눌러 출력 시에는 기록횟수를 제외한 데이터 저장
+pre_df = pd.DataFrame(columns=["이름", "기록시간", "기록횟수"])
+# pre_df를 csv_management에서만 사용하면서 구현
+
+
 # 인식된 얼굴을 콘솔 + Dataframe에 기록
 def record_attendandce(df, name):
     df["기록시간"] = pd.to_datetime(df["기록시간"], format="%Y-%m-%d %H:%M:%S")
