@@ -18,4 +18,4 @@ def record_attendandce(df, name):
 
 # 출석 기록 csv에 저장
 def release_csv(df):
-    df.to_csv("output.csv", index=False)
+    df.to_csv("attendence_record.csv", index=False)

@@ -100,6 +100,7 @@ while True:
 
     # 'q' 키를 누르면 종료
     if cv2.waitKey(1) & 0xFF == ord("q"):
+        ui.exportCSV()
         csvm.release_csv(df)
         break
 
