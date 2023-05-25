@@ -1,4 +1,5 @@
 import ui
+
 ui.welcomePage()
 
 import face_recognition
@@ -6,6 +7,7 @@ import cv2
 import threading
 import numpy as np
 import pandas as pd
+
 # conda install -c conda-forge face_recognition opencv
 # pip install pandas
 
@@ -30,7 +32,11 @@ class FaceRecognitionThread(threading.Thread):
 
 # 하위 디렉토리에서 모든 jpg 형식의 얼굴사진 학습
 # 이미지 파일과 실제 이름을 딕셔너리로 저장
-known_faces = fm.getFaceDataFromSubdirectory()
+known_faces, face_list = fm.getFaceDataFromSubdirectory()
+
+# 저장된 딕셔너리를 통해 Dataframe 구조화
+df = csvm.initDataFrame(face_list)
+print(df)
 
 # 이미지에서 얼굴 위치와 벡터 추출
 known_face_encodings = []
@@ -91,8 +97,7 @@ while True:
             cv2.rectangle(frame, (left, top), (right, bottom), (0, 0, 255), 2)
 
             # 인식된 얼굴 위에 이름 표시
-            cv2.putText(frame, name, (left + 6, bottom - 6), 
-                        cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 255), 1)
+            cv2.putText(frame, name, (left + 6, bottom - 6), cv2.FONT_HERSHEY_SIMPLEX, 1.0, (255, 255, 255), 1)
 
             df = csvm.record_attendandce(df, name)
 
