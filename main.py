@@ -58,7 +58,7 @@ while True:
     ret, frame = cap.read()
 
     # 이미지 크기 조정
-    frame = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)  # type: ignore
+    frame = cv2.resize(frame, (0, 0), fx=1, fy=1)  # type: ignore
 
     # 얼굴 인식을 수행할 이미지 리스트 생성
     images = []

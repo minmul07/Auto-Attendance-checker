@@ -21,6 +21,10 @@ def initDataFrame(face_list):
 
 # 인식된 얼굴을 콘솔 + Dataframe에 기록
 def record_attendandce(df, name):
+    if name == "Unknown":
+        return df
+    
+    
     if df.loc[name, "기록횟수"] < count_goal:
         df.loc[name, "기록횟수"] += 1
     elif df.loc[name, "기록횟수"] == count_goal:
