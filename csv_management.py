@@ -43,4 +43,4 @@ def record_attendandce(df, name):
 def release_csv(df):
     df.pop("기록횟수")
     df.reset_index(inplace=True)
-    df.to_csv("attendence_record.csv", index=False)
+    df.to_csv("attendence_record.csv", index=False, encoding="utf-8-sig")

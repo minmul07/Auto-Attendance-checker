@@ -37,6 +37,7 @@ known_faces, face_list = fm.getFaceDataFromSubdirectory()
 # 저장된 딕셔너리를 통해 Dataframe 구조화
 df = csvm.initDataFrame(face_list)
 print(df)
+print("\n")
 
 # 이미지에서 얼굴 위치와 벡터 추출
 known_face_encodings = []
